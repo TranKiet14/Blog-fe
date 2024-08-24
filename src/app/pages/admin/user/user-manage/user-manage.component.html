@@ -1,0 +1,63 @@
+<div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem;">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a routerLink="/admin">Home</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>Users</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <app-create-user (onReload)="handleReload($event)"></app-create-user>
+</div>
+<div class="card">
+  <div class="user__header">
+    <div class="user__card">
+      <h6 class="user__card--content">User table</h6>
+    </div>
+  </div>
+  <nz-table #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>USER</th>
+        <th>FUNCTION</th>
+        <th [nzAlign]="'center'">STATUS</th>
+        <th [nzAlign]="'center'">EMPLOYED</th>
+        <th [nzAlign]="'center'">UPDATED AT</th>
+        <th [nzAlign]="'center'">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>
+          <div class="user__profile">
+            <div class="user__avatar">
+              <nz-avatar [nzSize]="'large'" [nzShape]="'square'" [nzIcon]="'user'" nzSrc={{data.avatar}}>
+              </nz-avatar>
+            </div>
+            <div class="user__info">
+              <h6 class="user__name">{{data.fullName}}</h6>
+              <div class="user__email">{{data.email}}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="user__role">{{data.role.title}}</p>
+        </td>
+        <td [nzAlign]="'center'">
+          <nz-tag [nzColor]="data.status === 'active' ? 'green' : 'red'">{{data.status}}</nz-tag>
+        </td>
+        <td [nzAlign]="'center'">
+          <span class="user__employed">{{data.employed}}</span>
+        </td>
+        <td [nzAlign]="'center'">
+          <span class="user__employed">{{data.updatedat}}</span>
+        </td>
+        <td [nzAlign]="'center'">
+          <button nz-button nz-tooltip nzTooltipTitle="View Detail" [nzTooltipColor]="'#e91e63'">
+            <span nz-icon nzType="eye" nzTheme="outline"></span>
+          </button>
+          <app-edit-user [data]="data" (onReload)="handleReload($event)"></app-edit-user>
+          <app-delete-user [data]="data" (onReload)="handleReload($event)"></app-delete-user>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

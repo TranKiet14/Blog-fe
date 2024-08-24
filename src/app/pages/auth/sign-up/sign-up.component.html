@@ -1,0 +1,61 @@
+<main>
+    <div nz-row class="content">
+        <div class="content__left" nz-col nzSpan="12">
+            <div class="content__img"></div>
+        </div>
+        <div nz-col nzSpan="12">
+            <div nz-row style="height: 100%;" nzJustify="center" nzAlign="middle">
+                <div nz-col nzSpan="14">
+                    <div class="card">
+                        <div class="card__header">
+                            <h4 class="card__title">Sign Up</h4>
+                            <p class="card__description">Enter your email and password to register</p>
+                        </div>
+                        <div class="card__body">
+                            <form nz-form >
+                                <nz-form-item>
+                                    <nz-form-control nzErrorTip="Please input your username!">
+                                        <nz-input-group nzPrefixIcon="user">
+                                            <input type="text" nz-input formControlName="userName"
+                                                placeholder="Username" />
+                                        </nz-input-group>
+                                    </nz-form-control>
+                                </nz-form-item>
+                                <nz-form-item>
+                                    <nz-form-control nzErrorTip="Please input your email!">
+                                        <nz-input-group nzPrefixIcon="mail">
+                                            <input type="text" nz-input formControlName="email"
+                                                placeholder="Email" />
+                                        </nz-input-group>
+                                    </nz-form-control>
+                                </nz-form-item>
+                                <nz-form-item>
+                                    <nz-form-control nzErrorTip="Please input your Password!">
+                                        <nz-input-group nzPrefixIcon="lock">
+                                            <input type="password" nz-input formControlName="password"
+                                                placeholder="Password" />
+                                        </nz-input-group>
+                                    </nz-form-control>
+                                </nz-form-item>
+                                <div nz-row class="login-form-margin">
+                                    <div nz-col [nzSpan]="24">
+                                        <label nz-checkbox formControlName="remember">
+                                            <span>I agree the Terms and Conditions</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <button class="card__button">Sign up</button>
+                            </form>
+                        </div>
+                        <div class="card__footer">
+                            <p class="card__footer--content">
+                                Already have an account?
+                                <a routerLink="/sign-in" class="card__footer--link">Sign in</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

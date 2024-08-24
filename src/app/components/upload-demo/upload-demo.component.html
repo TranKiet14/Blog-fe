@@ -1,0 +1,7 @@
+<nz-upload nzListType="picture" [(nzFileList)]="fileList"
+ [nzAccept]="'image/*'" [nzLimit]="1" (nzChange)="handleChange($event)">
+  <button nz-button>
+    <span nz-icon nzType="upload"></span>
+    Upload
+  </button>
+</nz-upload>

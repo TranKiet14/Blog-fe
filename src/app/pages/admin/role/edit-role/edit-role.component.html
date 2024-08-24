@@ -1,0 +1,25 @@
+<button nz-button nzType="primary" nzGhost nz-tooltip nzTooltipTitle="Edit" [nzTooltipColor]="'#e91e63'"
+  (click)="showModal()">
+  <span nz-icon nzType="edit" nzTheme="outline"></span>
+</button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Update Role" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+  [nzCancelText]="'Cancel'" [nzOkText]="'Update'">
+  <ng-container *nzModalContent>
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="editForm">
+      <nz-form-item>
+        <nz-form-label nzRequired>Title</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="title" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>Description</nz-form-label>
+        <nz-form-control>
+          <nz-textarea-count [nzMaxCharacterCount]="100">
+            <textarea rows="4" formControlName="description" nz-input></textarea>
+          </nz-textarea-count>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-container>
+</nz-modal>

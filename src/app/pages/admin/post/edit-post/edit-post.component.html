@@ -1,0 +1,72 @@
+<nz-breadcrumb style="padding-bottom: 1rem;">
+    <nz-breadcrumb-item>
+      <a routerLink="/">Home</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a routerLink="/admin/post-manage">Posts</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      Create Post
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <nz-spin [nzSize]="'large'" nzTip="Đang cập nhật..." [nzSpinning]="spinning">
+    <div class="card">
+      <div class="post__header">
+        <div class="post__card">
+          <h6 class="post__card--content">Create Post</h6>
+        </div>
+      </div>
+      <form style="padding: 2rem; background-color: #fff;" nz-form [nzLayout]="'vertical'" [formGroup]="editForm"
+        (ngSubmit)="onSubmit()">
+        <nz-form-item>
+          <nz-form-label nzRequired>Category</nz-form-label>
+          <nz-form-control>
+            <nz-select nzMode="multiple" nzPlaceHolder="Please select" [nzAllowClear]="true"
+              formControlName="category_ids">
+              <nz-option *ngFor="let item of categories" [nzLabel]="item.title" [nzValue]="item.id"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>Thumbnail</nz-form-label>
+          <nz-form-control>
+            <input type="file" accept="image/*" (change)="onUploadFile($event)">
+            <img [src]="srcImagePreview" class="image-preview">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-tabset formArrayName="content_posts">
+          <nz-tab *ngFor="let item of contentPosts.controls; let i = index"
+            [nzTitle]="item?.get('language_title')?.value">
+            <div [formGroupName]="i">
+              <nz-form-item>
+                <nz-form-label>Title</nz-form-label>
+                <nz-form-control>
+                  <input nz-input formControlName="title" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label>Content</nz-form-label>
+                <nz-form-control>
+                  <editor formControlName="content" [init]="{
+                    base_url: '/tinymce',
+                    suffix: '.min',
+                    plugins: 'image code',
+                    image_title: true,
+                    automatic_uploads: true,
+                    file_picker_types: 'image',
+                    images_upload_url: 'http://localhost:3000/upload'
+                  }"></editor>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+          </nz-tab>
+        </nz-tabset>
+        <nz-form-item>
+          <nz-form-control [nzSpan]="14">
+            <button nz-button nzType="primary">Save</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+  </nz-spin>
+  

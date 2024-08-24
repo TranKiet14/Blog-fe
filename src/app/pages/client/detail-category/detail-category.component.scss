@@ -1,0 +1,118 @@
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css);
+@import "../../../../styles.scss";
+
+.list-post {
+  background-color: $--header-bg;
+  padding: 25px;
+  border-radius: 2px;
+  box-shadow: $--widget-shadow;
+}
+
+.list-post .item .image {
+  display: block;
+  width: 100%;
+  height: 180px;
+  margin: 0 0 12px;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+  color: transparent;
+}
+
+.list-post .item .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /*ảnh tự co giãn hết width/height mà ko bị vỡ*/
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.list-post .item .image:hover img {
+  transform: scale(1.1);
+}
+
+.list-post .item .entry-header {
+  padding-bottom: 25px;
+}
+
+.list-post .item .entry-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35em;
+}
+
+.list-post .item .entry-title a {
+  color: $--title-color;
+}
+
+.list-post .item .entry-title a:hover {
+  color: $--main-color;
+}
+
+.list-post .item .entry-excerpt {
+  font-size: 14px;
+  margin: 7px 0 0;
+  color: $--color-text;
+  overflow: hidden;
+}
+
+.excerpt {
+  line-height: 1.5em;
+  font-weight: 300;
+}
+
+.entry-meta.has-snip {
+  margin: 8px 0 0;
+}
+
+.list-post .item .entry-meta {
+  flex-wrap: wrap;
+  margin: 5px 0 0;
+}
+
+.entry-meta {
+  display: flex;
+  font-size: 12px;
+  color: $--meta-color;
+  font-weight: 300;
+  margin: 4px 0 0;
+}
+
+.entry-meta .mi,
+.entry-meta .sp {
+  margin: 0 4px 0 0;
+}
+
+.entry-meta .author-name {
+  color: $--main-color;
+  font-weight: 500;
+}
+
+.blog-pager {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 0;
+}
+
+.blog-pager .load-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 34px;
+  font-size: 14px;
+  color: $--title-color;
+  font-weight: 550;
+  padding: 0 20px;
+  border: 1px solid $--border-color;
+}
+
+.blog-pager .no-more {
+  display: flex;
+  background-color: $--gray-bg;
+  color: $--meta-color;
+  font-weight: 400;
+  cursor: not-allowed;
+  padding: 0 25px;
+  border: 0;
+}

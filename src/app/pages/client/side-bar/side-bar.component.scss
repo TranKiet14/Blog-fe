@@ -1,0 +1,147 @@
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css);
+@import "../../../../styles.scss";
+
+.side-bar {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 25px;
+}
+
+.widget {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-color: $--header-bg;
+  padding: 20px;
+  border-radius: 2px;
+  box-shadow: $--widget-shadow;
+}
+
+.title-wrap {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  margin: 0 0 20px;
+  border-bottom: 2px solid $--border-color;
+}
+
+.title {
+  position: relative;
+  height: 30px;
+  font-size: 15px;
+  color: $--title-color;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+}
+
+.title:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  height: 3px;
+  background-color: $--main-color;
+  margin: 0;
+}
+
+.widget-content .social {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 34px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 400;
+  overflow: hidden;
+  border-radius: 2px;
+  padding: 0 10px;
+}
+
+.side-bar ul .facebook {
+  /* background-color: #4E69A3; */
+  background-color: #3b5999;
+}
+
+.side-bar ul .twitter {
+  background-color: #000;
+  /* background-color: #191919; */
+}
+
+.side-bar ul .youtube {
+  background-color: #f50000;
+  /* background-color: #F61919; */
+}
+
+.side-bar ul .instagram {
+  background: linear-gradient(15deg, #ffb13d, #dd277b, #4d5ed4);
+}
+
+.side-bar ul .facebook a:hover {
+  background-color: #496299;
+}
+
+.side-bar ul .twitter a:hover {
+  background-color: #3a3939;
+}
+
+.side-bar ul .youtube a:hover {
+  background-color: #f62727;
+}
+
+.side-bar ul .instagram a:hover {
+  background: linear-gradient(15deg, #fcb549, #e13585, #5767d5);
+}
+
+.side-bar .widget-content .categories {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side-bar .widget-content .categories li a {
+  color: $--color-text;
+  padding: 0;
+}
+
+.side-bar .widget-content .categories li a:hover {
+  color: $--main-color;
+}
+
+.side-bar .widget-content .tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.side-bar .widget-content .tags li {
+  margin: 6px 5px 0 0;
+}
+
+.side-bar .widget-content .tags li a {
+  display: flex;
+  height: 28px;
+  background-color: $--gray-bg;
+  color: $--title-color;
+  font-size: 14px;
+  font-weight: 400;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.side-bar .widget-content .tags li a:hover {
+  color: $--main-color;
+}

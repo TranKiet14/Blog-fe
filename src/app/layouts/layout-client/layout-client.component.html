@@ -1,0 +1,115 @@
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="inner-main">
+                    <div class="inner-logo">
+                        <a href="/">
+                            <img src="logo.png" alt="Logo" />
+                        </a>
+                    </div>
+                    <div class="inner-menu">
+                        <ul>
+                            <li>
+                                <a routerLink="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Blogger
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Languages
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="inner-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="main-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 content-inner">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <app-side-bar></app-side-bar>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- End Main -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-section">
+            <div class="footer-image">
+                <a class="footer-logo custom-image" href="https://magspot-simple.blogspot.com/" rel="home">
+                    <img alt="Magspot Simple"
+                        src="https://1.bp.blogspot.com/-ogJcgqV3vIY/YTkSC7V8-9I/AAAAAAAAAeM/CZqbD8p4wRInPRzed1A2PMXXRkw2_C1lQCLcBGAsYHQ/s320/dark-logo.png">
+                </a>
+                <div class="footer-info">
+                    <h3 class="title">About Us</h3>
+                    <p class="image-caption excerpt">Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the industry's.</p>
+                </div>
+            </div>
+            <div class="link-list">
+                <ul class="social">
+                    <li class="facebook">
+                        <a href="#">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="twitter">
+                        <a href="#">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="youtube">
+                        <a href="#">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="instagram">
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="pinterest">
+                        <a href="#">
+                            <i class="fa-brands fa-pinterest"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="footer-bar">
+    <div class="container">
+        <div class="footer-bar-section">
+            <div class="footer-copyright">
+                <div class="widget Text" data-version="2" id="Text50">
+                    Design by - <a href="#" title="Blogger Templates">Pro Blogger Templates</a>
+                </div>
+            </div>
+            <div class="footer-menu">
+                <ul class="link-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

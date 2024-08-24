@@ -1,0 +1,31 @@
+<button class="btn-add" (click)="showModal()">Add new category</button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Create Category" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+  [nzCancelText]="'Cancel'" [nzOkText]="'Create'">
+  <ng-container *nzModalContent>
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="createForm">
+      <nz-form-item>
+        <nz-form-label nzRequired>Title</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="title" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzRequired>Status</nz-form-label>
+        <nz-form-control>
+          <nz-radio-group formControlName="status">
+            <label nz-radio nzValue="active">Hoạt động</label>
+            <label nz-radio nzValue="inactive">Không hoạt động</label>
+          </nz-radio-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>Description</nz-form-label>
+        <nz-form-control>
+          <nz-textarea-count [nzMaxCharacterCount]="100">
+            <textarea rows="4" formControlName="description" nz-input></textarea>
+          </nz-textarea-count>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-container>
+</nz-modal>

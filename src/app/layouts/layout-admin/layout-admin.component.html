@@ -1,0 +1,57 @@
+<nz-layout class="layout-admin">
+  <nz-header class='header-admin'>
+    <div [ngClass]="collapsed ? 'header-admin__logo header-admin__logo--collapsed' : 'header-admin__logo'">
+      {{ collapsed ? 'AD' : 'Admin' }}
+    </div>
+    <div class='header-admin__nav'>
+      <div class='header-admin__nav-left'>
+        <div class='header-admin__collapse' (click)="setCollapsed()">
+          <span nz-icon [nzType]="collapsed ? 'menu-unfold' : 'menu-fold'"></span>
+        </div>
+        <app-go-back />
+      </div>
+      <div class='header-admin__nav-right'>
+        <div class='header-admin__account'>
+          <button nz-button><span nz-icon nzType="home" nzTheme="outline"></span>Trang chủ</button>
+          <button nz-button style="margin-left: 0.75rem;" (click)="logout()"><span nz-icon nzType="logout" nzTheme="outline" ></span>Đăng xuất</button>
+        </div>
+      </div>
+    </div>
+  </nz-header>
+  <nz-layout>
+    <nz-sider [nzCollapsed]="collapsed" class="sider" nzTheme='dark'>
+      <app-menu-sider [collapsed]="collapsed" />
+    </nz-sider>
+    <nz-layout>
+      <nz-content class="content">
+        <router-outlet></router-outlet>
+      </nz-content>
+      <nz-footer class="footer">
+        <div nz-row>
+          <div nz-col [nzSpan]="18">
+            <div class="footer__content">
+              © 2024, made with <span nz-icon nzType="heart" nzTheme="fill"></span> by TK for a better web.
+            </div>
+          </div>
+          <div nz-col [nzSpan]="6">
+            <ul class="footer__menu">
+              <li class="footer__item">
+                <a href="https://www.creative-tim.com">Home</a>
+              </li>
+              <li class="footer__item">
+                <a href="https://www.creative-tim.com/presentation">About Us</a>
+              </li>
+              <li class="footer__item">
+                <a href="https://www.creative-tim.com/blog">Blog</a>
+              </li>
+              <li class="footer__item">
+                <a href="https://www.creative-tim.com/license">License</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nz-footer>
+    </nz-layout>
+  </nz-layout>
+
+</nz-layout>

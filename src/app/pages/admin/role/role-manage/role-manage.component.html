@@ -1,0 +1,48 @@
+<div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem;">
+    <nz-breadcrumb>
+      <nz-breadcrumb-item>
+        <a routerLink="/">Home</a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>Roles</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <app-create-role (onReload)="handleReload($event)"></app-create-role>
+  </div>
+  <div class="card">
+    <div class="role__header">
+      <div class="role__card">
+        <h6 class="role__card--content">Role table</h6>
+      </div>
+    </div>
+    <nz-table #basicTable [nzData]="listOfData">
+      <thead>
+        <tr>
+          <th>ROLES</th>
+          <th [nzAlign]="'center'">CREATED AT</th>
+          <th [nzAlign]="'center'">UPDATED AT</th>
+          <th [nzAlign]="'center'">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>
+            <h6 class="role__title">{{data.title}}</h6>
+          </td>
+          <td [nzAlign]="'center'">
+            <span class="role__timestamp">{{data.createdAt}}</span>
+          </td>
+          <td [nzAlign]="'center'">
+            <span class="role__timestamp">{{data.updatedAt}}</span>
+          </td>
+          <td [nzAlign]="'center'">
+            <button nz-button nz-tooltip nzTooltipTitle="View Detail" [nzTooltipColor]="'#e91e63'">
+              <span nz-icon nzType="eye" nzTheme="outline"></span>
+            </button>
+            <app-edit-role [data]="data" (onReload)="handleReload($event)"></app-edit-role>
+            <app-delete-role [data]="data" (onReload)="handleReload($event)"></app-delete-role>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  
+  </div>
+  

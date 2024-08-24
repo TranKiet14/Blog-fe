@@ -1,0 +1,75 @@
+<main>
+  <div nz-row class="content" nzAlign="middle" nzJustify="center">
+    <div nz-col nzSpan="6">
+      <div class="card">
+        <div class="card__header">
+          <div class="card__header--top">
+            <h4 class="card__title">Sign In</h4>
+            <div nz-row style="margin: 1rem 0">
+              <div nz-col nzSpan="8" style="display: flex; justify-content: center">
+                <span nz-icon nzType="facebook" nzTheme="outline" style="color: #fff; font-size: 1.75rem"></span>
+              </div>
+              <div nz-col nzSpan="8" style="display: flex; justify-content: center">
+                <span nz-icon nzType="github" nzTheme="outline" style="color: #fff; font-size: 1.75rem"></span>
+              </div>
+              <div nz-col nzSpan="8" style="display: flex; justify-content: center">
+                <span nz-icon nzType="google" nzTheme="outline" style="color: #fff; font-size: 1.75rem"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card__body">
+          <form nz-form [formGroup] = "loginForm" (ngSubmit)="onSubmit()" >
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="emailErrorTpl">
+                <nz-input-group nzPrefixIcon="mail">
+                  <input type="text" nz-input formControlName="email" placeholder="Email" />
+                  <ng-template #emailErrorTpl let-control>
+                    @if (control.errors?.['required']) {
+                      Please input your Email!
+                    }
+                    @if (control.errors?.['email']) {
+                      The input is not valid email!
+                    }
+                    @if (control.errors?.['email_incorrect']) {
+                      Email does not Exist!
+                    }
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="passwordErrorTpl">
+                <nz-input-group nzPrefixIcon="lock">
+                  <input type="password" nz-input formControlName="password" placeholder="Password" />
+                  <ng-template #passwordErrorTpl let-control>
+                    @if (control.errors?.['required']) {
+                      Please input your Password!
+                    }
+                    @if (control.errors?.['password_incorrect']) {
+                      Password is incorrect!
+                    }
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <div nz-row class="login-form-margin">
+              <div nz-col [nzSpan]="24">
+                <label nz-checkbox>
+                  <span>Remember me</span>
+                </label>
+              </div>
+            </div>
+            <button class="card__button">Sign in</button>
+          </form>
+        </div>
+        <div class="card__footer">
+          <p class="card__footer--content">
+            Don't have an account?
+            <a routerLink="/sign-up" class="card__footer--link">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

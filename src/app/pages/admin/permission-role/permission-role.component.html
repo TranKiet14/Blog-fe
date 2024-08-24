@@ -1,0 +1,165 @@
+<div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem;">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a routerLink="/">Home</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>Permissions</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <button class="btn-add" (click)="permission()">Update Permission</button>
+</div>
+<nz-spin [nzSize]="'large'" nzTip="Đang cập nhật..." [nzSpinning]="spinning">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>
+          <h3>Functions</h3>
+        </td>
+        <th class="text-center" *ngFor="let item of data">{{ item.title }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>User Accounts</b></td>
+      </tr>
+      <tr>
+        <td>View</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 1)" (change)="onChange(item.id, 1)">
+        </td>
+      </tr>
+      <tr>
+        <td>Create</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 2)" (change)="onChange(item.id, 2)">
+        </td>
+      </tr>
+      <tr>
+        <td>Edit</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 3)" (change)="onChange(item.id, 3)">
+        </td>
+      </tr>
+      <tr>
+        <td>Delete</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 4)" (change)="onChange(item.id, 4)">
+        </td>
+      </tr>
+      <tr>
+        <td><b>Categories</b></td>
+      </tr>
+      <tr>
+        <td>View</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 5)" (change)="onChange(item.id, 5)">
+        </td>
+      </tr>
+      <tr>
+        <td>Create</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 6)" (change)="onChange(item.id, 6)">
+        </td>
+      </tr>
+      <tr>
+        <td>Edit</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 7)" (change)="onChange(item.id, 7)">
+        </td>
+      </tr>
+      <tr>
+        <td>Delete</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 8)" (change)="onChange(item.id, 8)">
+        </td>
+      </tr>
+      <tr>
+        <td><b>Languages</b></td>
+      </tr>
+      <tr>
+        <td>View</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 9)" (change)="onChange(item.id, 9)">
+        </td>
+      </tr>
+      <tr>
+        <td>Create</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 10)" (change)="onChange(item.id, 10)">
+        </td>
+      </tr>
+      <tr>
+        <td>Edit</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 11)" (change)="onChange(item.id, 11)">
+        </td>
+      </tr>
+      <tr>
+        <td>Delete</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 12)" (change)="onChange(item.id, 12)">
+        </td>
+      </tr>
+      <tr>
+        <td><b>Roles</b></td>
+      </tr>
+      <tr>
+        <td>View</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 13)" (change)="onChange(item.id, 13)">
+        </td>
+      </tr>
+      <tr>
+        <td>Create</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 14)" (change)="onChange(item.id, 14)">
+        </td>
+      </tr>
+      <tr>
+        <td>Edit</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 15)" (change)="onChange(item.id, 15)">
+        </td>
+      </tr>
+      <tr>
+        <td>Delete</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 16)" (change)="onChange(item.id, 16)">
+        </td>
+      </tr>
+      <tr>
+        <td>Permission</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 17)" (change)="onChange(item.id, 17)">
+        </td>
+      </tr>
+      <tr>
+        <td><b>Posts</b></td>
+      </tr>
+      <tr>
+        <td>View</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 18)" (change)="onChange(item.id, 18)">
+        </td>
+      </tr>
+      <tr>
+        <td>Create</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 19)" (change)="onChange(item.id, 19)">
+        </td>
+      </tr>
+      <tr>
+        <td>Edit</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 20)" (change)="onChange(item.id, 20)">
+        </td>
+      </tr>
+      <tr>
+        <td>Delete</td>
+        <td class="text-center" *ngFor="let item of data">
+          <input type="checkbox" [checked]="check(item.id, 21)" (change)="onChange(item.id, 21)">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</nz-spin>

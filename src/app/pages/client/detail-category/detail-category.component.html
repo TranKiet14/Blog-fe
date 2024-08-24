@@ -1,0 +1,30 @@
+<div class="list-post">
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" *ngFor="let item of listPost">
+            <article class="item">
+                <a [routerLink]="['/detail', item?.content_posts[0]?.slug]" class="image">
+                    <img [src]="item?.thumbnail">
+                </a>
+                <div class="entry-header">
+                    <h2 class="entry-title"><a [routerLink]="['/detail', item?.content_posts[0]?.slug]">{{ item?.content_posts[0]?.title }}</a></h2>
+                    <div class="entry-meta has-snip">
+                        <span class="entry-author mi"><span class="by sp">by</span><span
+                                class="author-name">{{ item?.user?.fullName }}</span></span>
+                        <span class="entry-time mi"><span class="sp">-</span><time
+                                class="published">{{ item?.createdAt }}</time></span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="blog-pager">
+        <a class="load-more" href="#">
+            Load More
+            <span style="margin-left: 5px;"><i class="fa-solid fa-chevron-down"></i></span>
+        </a>
+        <span class="loading" style="display: none;">
+            <div class="loader"></div>
+        </span>
+        <!-- <span class="load-more no-more">No results found</span> -->
+    </div>
+</div>

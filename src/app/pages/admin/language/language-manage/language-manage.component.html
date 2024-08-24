@@ -1,0 +1,59 @@
+<div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem;">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a routerLink="/">Home</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>Languages</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <app-create-language (onReload)="handleReload($event)"></app-create-language>
+</div>
+<div class="card">
+    <div class="language__header">
+      <div class="language__card">
+        <h6 class="language__card--content">Language table</h6>
+      </div>
+    </div>
+    <nz-table #basicTable [nzData]="listOfData">
+      <thead>
+        <tr>
+          <th>LANGUAGES</th>
+          <th>CODE</th>
+          <th [nzAlign]="'center'">CREATED AT</th>
+          <th [nzAlign]="'center'">UPDATED AT</th>
+          <th [nzAlign]="'center'">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>
+            <div class="language__profile">
+              <div class="language__flag">
+                <nz-avatar [nzSize]="'large'" [nzIcon]="'language'" nzSrc={{data.flag}}>
+                </nz-avatar>
+              </div>
+              <div class="language__info">
+                <h6 class="language__title">{{data.title}}</h6>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="language__code">{{data.language_code}}</p>
+          </td>
+          <td [nzAlign]="'center'">
+            <span class="language__timestamp">{{data.createdAt}}</span>
+          </td>
+          <td [nzAlign]="'center'">
+            <span class="language__timestamp">{{data.updatedAt}}</span>
+          </td>
+          <td [nzAlign]="'center'">
+              <button nz-button nz-tooltip nzTooltipTitle="View Detail" [nzTooltipColor]="'#e91e63'">
+                <span nz-icon nzType="eye" nzTheme="outline"></span>
+              </button>
+              <app-edit-language [data]="data" (onReload)="handleReload($event)"></app-edit-language>
+              <app-delete-language [data]="data" (onReload)="handleReload($event)"></app-delete-language>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  

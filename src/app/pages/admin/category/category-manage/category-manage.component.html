@@ -1,0 +1,51 @@
+<div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem;">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a routerLink="/">Home</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>Categories</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <app-create-category (onReload)="handleReload($event)"></app-create-category>
+</div>
+<div class="card">
+  <div class="category__header">
+    <div class="category__card">
+      <h6 class="category__card--content">Category table</h6>
+    </div>
+  </div>
+  <nz-table #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>CATEGORIES</th>
+        <th [nzAlign]="'center'">STATUS</th>
+        <th [nzAlign]="'center'">CREATED AT</th>
+        <th [nzAlign]="'center'">UPDATED AT</th>
+        <th [nzAlign]="'center'">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>
+          <h6 class="category__title">{{data.title}}</h6>
+        </td>
+        <td [nzAlign]="'center'">
+          <nz-tag [nzColor]="data.status === 'active' ? 'green' : 'red'">{{data.status}}</nz-tag>
+        </td>
+        <td [nzAlign]="'center'">
+          <span class="category__timestamp">{{data.createdAt}}</span>
+        </td>
+        <td [nzAlign]="'center'">
+          <span class="category__timestamp">{{data.updatedAt}}</span>
+        </td>
+        <td [nzAlign]="'center'">
+          <button nz-button nz-tooltip nzTooltipTitle="View Detail" [nzTooltipColor]="'#e91e63'">
+            <span nz-icon nzType="eye" nzTheme="outline"></span>
+          </button>
+          <app-edit-category [data]="data" (onReload)="handleReload($event)"></app-edit-category>
+          <app-delete-category [data]="data" (onReload)="handleReload($event)"></app-delete-category>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+</div>

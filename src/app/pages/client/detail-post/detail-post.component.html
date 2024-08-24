@@ -1,0 +1,152 @@
+<div class="blog">
+  <div class="detail-post">
+    <h1 class="entry-title">{{ data?.title }}</h1>
+    <div class="entry-meta">
+      <div class="align-left">
+        <span class="entry-author mi">
+          <span class='author-avatar'>
+            <img [src]="data?.post?.user?.avatar">
+          </span>
+          <span class="by sp">by</span><span class="author-name">{{ data?.post?.user?.fullName }}</span></span>
+        <span class="entry-time mi"><span class="sp">-</span><time class="published"
+            datetime="2021-08-02T06:33:00-07:00">{{ data?.createdAt }}</time></span>
+      </div>
+      <div class="align-right">
+        <i class="fa-solid fa-comments" style="color: var(--main-color);"></i>
+        <span class="entry-comments-link show">3</span>
+      </div>
+    </div>
+    <div class="post-body entry-content" [innerHTML]="data?.content">
+    </div>
+  </div>
+  <div class="about-author">
+    <div class="author-avatar-wrap">
+      <img [src]="data?.post?.user?.avatar">
+    </div>
+    <div class="author-description">
+      <h3 class="author-title"><a alt="John Doe" href="https://www.blogger.com/profile/00123090729158753546"
+          rel="noopener noreferrer" target="_blank">{{ data?.post?.user?.fullName }}</a></h3>
+      <p class="author-text excerpt">Pro Blogger Templates is a site where you find unique and
+        professional blogger templates, Improve your blog now for free.
+      </p>
+    </div>
+  </div>
+  <div class="widget">
+    <div class="widget-title title-wrap">
+      <h3 class="title">You might like</h3>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="related-item">
+          <div class="image">
+            <img
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5uysImVYnk810A2VWhohOngK3hecnKjJ_66iM35ioT3xcIKHidFzZa5EHe9y_NaDHyaM_bNzBzKPTFn-kaj8gIzGCvVweyn5Z9CVFskKmQOV7S1C2eMdYc9HrYoabmSEAFddscI0e4Qc/s16000/pbt62.jpg">
+          </div>
+          <div class="related-header">
+            <h2 class="related-title">
+              <a href="https://magspot-simple.blogspot.com/2021/08/18-practices-for-building-responsive.html">
+                18 Practices for Building Responsive Web Applications
+              </a>
+            </h2>
+            <div class="entry-meta">
+              <span class="entry-time mi">
+                <time class="published" datetime="2021-08-02T06:27:00.000-07:00">
+                  August 02, 2021
+                </time>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="related-item">
+          <div class="image">
+            <img
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZkphOfHnww641rAX-67Yy_Zvd9rYDkEnAZNPAA1YrChnBhUCBdqgvJ20Mf0uo_w3m5pDXIhvh_iOWn66iR0p_-DmgoMoEqt9rFQ_dFDYWFCUX6j9fMinzwW9J5zVj2UtrKMhPFoQBebo/s16000/pbt64.jpg">
+          </div>
+          <div class="related-header">
+            <h2 class="related-title">
+              <a href="https://magspot-simple.blogspot.com/2021/08/18-practices-for-building-responsive.html">
+                Apple Macbook Pro is the Best One Yet By Consumer
+              </a>
+            </h2>
+            <div class="entry-meta">
+              <span class="entry-time mi">
+                <time class="published" datetime="2021-08-02T06:27:00.000-07:00">
+                  August 02, 2021
+                </time>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="related-item">
+          <div class="image">
+            <img
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrXRxisD1x5v8AUAgY1WpIxbSsa9kPeq2O0_Qah8ouYGZ6ezNXzthfDPYTKswNrt6vOtkjKDpPm7_dCynJaC_zhdl_kYbqYySKgF3evnQT0EUo3US3v7b8AuQGV9diiQnm6VhKVl9FbaY/s16000/pbt57.jpg">
+          </div>
+          <div class="related-header">
+            <h2 class="related-title">
+              <a href="https://magspot-simple.blogspot.com/2021/08/18-practices-for-building-responsive.html">
+                Catch the Best iPhone X Deals Plus Your Favorite gadgets
+              </a>
+            </h2>
+            <div class="entry-meta">
+              <span class="entry-time mi">
+                <time class="published" datetime="2021-08-02T06:27:00.000-07:00">
+                  July 31, 2021
+                </time>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="widget">
+    <div class="widget-title title-wrap">
+      <h3 class="title">{{data?.post?.comments.length}} comment</h3>
+    </div>
+    <p class="comments-message excerpt">To be published, comments must be reviewed by the
+      administrator.<em>*</em>
+    </p>
+    <div class="comments-content">
+      <div class="comment-thread toplevel-thread">
+        @if (dataCmt.length) {
+        <nz-list [nzDataSource]="dataCmt" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+          <ng-template #item let-item>
+            <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.datetime">
+              <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="item.avatar"></nz-avatar>
+              <nz-comment-content>
+                <p>{{ item.content }}</p>
+              </nz-comment-content>
+              <nz-comment-action>Reply to</nz-comment-action>
+            </nz-comment>
+          </ng-template>
+        </nz-list>
+        }
+        <nz-comment>
+          <nz-avatar nz-comment-avatar nzIcon="user"
+            [nzSrc]="user.avatar"></nz-avatar>
+          <nz-comment-content>
+            <form nz-form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+              <nz-form-item>
+                <nz-form-control>
+                  <textarea nz-input rows="2" formControlName="content"></textarea>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control>
+                  <button nz-button nzType="primary" [nzLoading]="" [disabled]="">
+                    Add Comment
+                  </button>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+          </nz-comment-content>
+        </nz-comment>
+      </div>
+    </div>
+  </div>
+</div>

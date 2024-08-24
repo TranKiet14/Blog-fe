@@ -1,0 +1,27 @@
+<button class="btn-add" (click)="showModal()">Add new language</button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Create Language" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+  [nzCancelText]="'Cancel'" [nzOkText]="'Create'">
+  <ng-container *nzModalContent>
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="createForm">
+      <nz-form-item>
+        <nz-form-label nzRequired>Title</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="title" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzRequired>Language Code</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="language_code" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>Flag</nz-form-label>
+        <nz-form-control>
+          <input type="file" accept="image/*" (change)="onUploadFile($event)">
+          <img [src]= "srcImagePreview" class="image-preview">
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-container>
+</nz-modal>
